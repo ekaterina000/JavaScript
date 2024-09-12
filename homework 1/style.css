@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    color: #0277bd;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passport-container {
+    position: relative;
+    width: 600px;
+    height: 800px;
+    background-image: url('images.jpeg');
+    background-size: cover;
+    border: 2px solid #0288d1;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.surname, .name, .patronymic, .gender, .birthplace {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.surname {
+    top: 470px;
+    left: 300px;
+}
+
+.name {
+    top: 500px;
+    left: 300px;
+}
+
+.patronymic {
+    top: 530px;
+    left: 300px;
+}
+
+.gender {
+    top: 600px;
+    left: 240px;
+}
+
+.birthplace {
+    top: 630px;
+    left: 300px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #0277bd;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 50%;
+    border: 2px solid #0288d1;
+}
+
+table td, table th {
+    border: 1px solid #01579b;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+table tr:first-child td,
+table td:first-child {
+    background-color: #0288d1;
+    color: white;
+}
+
+table tr td:not(:first-child),
+table tr:not(:first-child) td {
+    background-color: #b3e5fc;
+}
