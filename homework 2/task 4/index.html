@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Зоомагазина</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Каталог товаров зоомагазина</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Товар</th>
+                <th>Цена за 1 шт.</th>
+                <th>Количество</th>
+                <th>Цена за всё</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td align="center">Корм для кошек</td>
+                <td align="center"><b id="cena_1">500</b> руб.</td>
+                <td align="center">
+                    <button class="control-btn" onclick="plus(1)">+</button>
+                    <b id="col_1">0</b> шт.
+                    <button class="control-btn" onclick="minus(1)">−</button>
+                </td>
+                <td align="center"><b id="cenap_1">0</b> руб.</td>
+            </tr>
+            <tr>
+                <td align="center">Поводок для собак</td>
+                <td align="center"><b id="cena_2">1200</b> руб.</td>
+                <td align="center">
+                    <button class="control-btn" onclick="plus(2)">+</button>
+                    <b id="col_2">0</b> шт.
+                    <button class="control-btn" onclick="minus(2)">−</button>
+                </td>
+                <td align="center"><b id="cenap_2">0</b> руб.</td>
+            </tr>
+            <tr>
+                <td align="center">Игрушка для попугаев</td>
+                <td align="center"><b id="cena_3">300</b> руб.</td>
+                <td align="center">
+                    <button class="control-btn" onclick="plus(3)">+</button>
+                    <b id="col_3">0</b> шт.
+                    <button class="control-btn" onclick="minus(3)">−</button>
+                </td>
+                <td align="center"><b id="cenap_3">0</b> руб.</td>
+            </tr>
+            <tr>
+                <td align="center">Аквариумный фильтр</td>
+                <td align="center"><b id="cena_4">2500</b> руб.</td>
+                <td align="center">
+                    <button class="control-btn" onclick="plus(4)">+</button>
+                    <b id="col_4">0</b> шт.
+                    <button class="control-btn" onclick="minus(4)">−</button>
+                </td>
+                <td align="center"><b id="cenap_4">0</b> руб.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="total">
+        ИТОГО: <b id="itog">0</b> руб.
+    </div>
+</div>
+
+</body>
+</html>

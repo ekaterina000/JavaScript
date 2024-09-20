@@ -56,24 +56,3 @@ function toggleTable() {
 }
 
 document.getElementById('toggleTableButton').addEventListener('click', toggleTable);
-
-
-function hideTable() {
-    let table = document.querySelector('#table');
-    table.innerHTML = '';
-}
-
-function toggleTable() {
-    let table = document.querySelector('#table');
-    let toggleButton = document.getElementById('toggleTableButton');
-
-    if (table.innerHTML === '') {
-        insertTable();
-        toggleButton.innerText = 'Скрыть таблицу';
-    } else {
-        hideTable();
-        toggleButton.innerText = 'Показать таблицу Пифагора';
-    }
-}
-
-document.getElementById('toggleTableButton').addEventListener('click', toggleTable);
