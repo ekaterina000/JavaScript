@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсчет калорийности продуктов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Подсчет калорийности продуктов</h1>
+        <div class="input-container">
+            <textarea id="productNames" rows="3" placeholder="Введите названия продуктов через пробел..."></textarea>
+            <textarea id="productValues" rows="3" placeholder="Введите белки-жиры-углеводы через пробел для каждого продукта..."></textarea>
+            <button onclick="calculateCalories()">Рассчитать</button>
+        </div>
+        <h2>Самый низкокалорийный продукт:</h2>
+        <div id="lowest-calorie-product"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

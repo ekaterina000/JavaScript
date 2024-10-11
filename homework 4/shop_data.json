@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Корм для кошек",
+        "description": "Сухой корм премиум-класса",
+        "price": 500,
+        "img": "images/cat_food.jpeg"
+    },
+    {
+        "title": "Игрушка для собак",
+        "description": "Прочная игрушка для активных собак",
+        "price": 300,
+        "img": "images/dog_toy.jpg"
+    },
+    {
+        "title": "Аквариум на 20 литров",
+        "description": "Подходит для маленьких рыбок",
+        "price": 1500,
+        "img": "images/aquarium.jpg"
+    },
+    {
+        "title": "Клетка для хомяков",
+        "description": "Просторная клетка для грызунов",
+        "price": 1200,
+        "img": "images/hamster_cage.jpg"
+    },
+    {
+        "title": "Груминг-набор для животных",
+        "description": "Полный набор инструментов для ухода",
+        "price": 700,
+        "img": "images/grooming_kit.jpg"
+    },
+    {
+        "title": "Когтеточка для кошек",
+        "description": "Удобная и прочная когтеточка",
+        "price": 800,
+        "img": "images/cat_scratch.jfif"
+    },
+    {
+        "title": "Лежанка для собак",
+        "description": "Мягкая лежанка для комфортного отдыха",
+        "price": 1100,
+        "img": "images/dog_bed.jpg"
+    },
+
+    {
+        "title": "Корм для попугаев",
+        "description": "Находка для здоровых перьев",
+        "price": 200,
+        "img": "images/popugai_eat.jfif"
+    },
+    {
+        "title": "Наполнитель для лотка",
+        "description": "Раскрываются приятные ароматы",
+        "price": 850,
+        "img": "images/cat_toilet.jpg"
+    }
+]

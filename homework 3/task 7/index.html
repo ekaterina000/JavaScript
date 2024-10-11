@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Концерты 2023 года</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Концерты 2023 года</h1>
+        <div class="input-container">
+            <textarea id="concertData" rows="10" placeholder="Введите данные о концертах. Например:&#10;Группа1, 15.03.2023&#10;Группа2, 01.08.2023&#10;...&#10;END"></textarea>
+            <button onclick="findTopBand()">Найти группу с наибольшим количеством концертов</button>
+        </div>
+        <h2>Результат:</h2>
+        <div id="top-band"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
