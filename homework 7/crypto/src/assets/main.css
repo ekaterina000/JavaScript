@@ -1,0 +1,24 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin-top: 30px;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+
+@media (hover: hover) {
+}
+
+@media (min-width: 1024px) {
+  body {
+    
+  }
+ 
+  #app {
+    display: grid;
+    padding: 0 2rem;
+  }
+}
+
