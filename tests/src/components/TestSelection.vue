@@ -5,8 +5,9 @@
         <button @click="navigateToTest('time-test')">Тест на восприятие времени</button>
         <button @click="navigateToTest('stroop-test')">Тест Струпа</button>
         <button @click="navigateToTest('memory-test')">Тест на память</button>
-        <button @click="navigateToTest('reaction')">Тест на реакцию</button>
-        <button @click="navigateToTest('attention')">Тест на внимание</button>
+        <button @click="navigateToTest('reaction-test')">Тест на реакцию</button>
+        <button @click="navigateToTest('stroop-test2')">Тест Струпа 2</button>
+        <button @click="navigateToTest('vigilance-test')">Тест на психомоторную бдительность</button>
       </div>
     </div>
   </template>

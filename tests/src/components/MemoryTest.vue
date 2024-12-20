@@ -27,7 +27,7 @@
           </div>
         </div>
         <div v-if="gameOver" class="game-over">
-          <h2>Игра окончена! Вы нашли все пары за {{ timeElapsed }} секунд.</h2>
+          <h2>Тест завершен! Вы нашли все пары за {{ timeElapsed }} секунд.</h2>
           <div class="buttons">
             <button @click="restartGame" class="reset-btn">Пройти тест еще раз</button>
             <button @click="goBack" class="back-btn">Назад</button>
