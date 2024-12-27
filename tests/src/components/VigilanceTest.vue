@@ -28,17 +28,17 @@
   
           <!-- цикл для создания элементов целей на экране -->
           <div
-            v-for="(target, index) in targets" <!-- перебираем список целей -->
-            :key="index" <!-- назначаем уникальный ключ для каждой цели -->
-            :class="['target', target.shape]" <!-- добавляем классы для формы цели -->
+            v-for="(target, index) in targets" 
+            :key="index"
+            :class="['target', target.shape]" 
             :style="{
-              width: target.size + 'px',  <!-- ширина цели в пикселях -->
-              height: target.size + 'px', <!-- высота цели в пикселях -->
-              top: target.position.top + '%', <!-- позиция сверху в процентах -->
-              left: target.position.left + '%', <!-- позиция слева в процентах -->
-              backgroundColor: '#d9f0fc', <!-- цвет фона цели -->
+              width: target.size + 'px', 
+              height: target.size + 'px',
+              top: target.position.top + '%',
+              left: target.position.left + '%',
+              backgroundColor: '#d9f0fc', 
             }"
-            @click="handleClick(target, index)" <!-- обработчик клика по цели -->
+            @click="handleClick(target, index)" 
           ></div>
         </div>
   
@@ -188,6 +188,12 @@ export default {
     // метод для возврата на главную страницу
     goBack() {
       this.$router.push("/"); // перенаправляем на корневой маршрут
+    },
+    // метод для повторного прохождения теста
+    restartTest() {
+      this.resetTest(); // сбрасываем все данные теста
+      this.generateTargets(); // создаём новые цели
+      this.startTimer(); // запускаем таймер заново
     },
   },
 };
