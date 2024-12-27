@@ -1,3 +1,42 @@
+<template>
+  <div class="stroop-test">
+    <h1>Тест на обработку информации</h1>
+    <div v-if="!testStarted" class="start-message">
+      <button @click="startTest" class="start-btn">Начать тест</button>
+      <button @click="goBack" class="back-btn">Назад</button>
+    </div>
+    <div v-else>
+      <div class="instruction">Выберите больший круг, игнорируя цифры.</div>
+      <div class="stimulus">
+        <div
+          v-for="(circle, index) in circles"
+          :key="index"
+          :class="['circle', { larger: circle.isLarger }]"
+          :style="{
+            width: circle.size + 'px',
+            height: circle.size + 'px',
+            fontSize: circle.size / 3 + 'px',
+            top: circle.position.top + '%',
+            left: circle.position.left + '%',
+          }"
+          @click="selectCircle(index)"
+        >
+          {{ circle.number }}
+        </div>
+      </div>
+      <div v-if="testCompleted" class="test-completed">
+        <h2>Тест завершён!</h2>
+        <p>Правильных ответов: {{ correctAnswers }} из {{ maxTasks }}.</p>
+        <p>Ваше время: {{ timeElapsed }} секунд.</p>
+        <div class="buttons">
+          <button @click="restartTest" class="reset-btn">Пройти тест ещё раз</button>
+          <button @click="goBack" class="back-btn">Назад</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
   data() {
@@ -10,6 +49,7 @@ export default {
       maxTasks: 10,
       correctAnswers: 0,
       circles: [],
+      gridSize: 5, // Размер сетки
     };
   },
   methods: {
@@ -22,6 +62,7 @@ export default {
       const minSize = 80;
       const maxSize = 160;
 
+      // Генерация размеров и чисел
       const randomSizes = [
         Math.floor(Math.random() * (maxSize - minSize) + minSize),
         Math.floor(Math.random() * (maxSize - minSize) + minSize),
@@ -34,36 +75,34 @@ export default {
 
       const shuffledIndices = Math.random() > 0.5 ? [0, 1] : [1, 0];
 
-      const newCircles = [];
-      for (let i = 0; i < 2; i++) {
-        let newPosition;
-        let overlap;
+      // Расчет сетки
+      const usedCells = [];
+      const gridSize = this.gridSize;
 
+      const getRandomCell = () => {
+        let cell;
         do {
-          newPosition = {
-            top: Math.random() * 60 + 20, // Позиция внутри безопасной зоны (20% сверху и снизу от экрана)
-            left: Math.random() * 60 + 20, // Позиция внутри безопасной зоны (20% слева и справа)
-          };
+          const row = Math.floor(Math.random() * gridSize);
+          const col = Math.floor(Math.random() * gridSize);
+          cell = { row, col };
+        } while (usedCells.some((c) => c.row === cell.row && c.col === cell.col));
+        usedCells.push(cell);
+        return cell;
+      };
 
-          // Проверяем пересечения с другими кругами
-          overlap = newCircles.some((circle) => {
-            const distance = Math.sqrt(
-              Math.pow(circle.position.top - newPosition.top, 2) +
-              Math.pow(circle.position.left - newPosition.left, 2)
-            );
-            return distance < (circle.size + randomSizes[i]) / 2; // Проверка на пересечение с учётом радиусов
-          });
-        } while (overlap);
-
-        newCircles.push({
-          size: randomSizes[shuffledIndices[i]],
-          number: randomNumbers[shuffledIndices[i]],
-          isLarger: shuffledIndices[i] === 1,
-          position: newPosition,
-        });
-      }
-
-      this.circles = newCircles;
+      this.circles = shuffledIndices.map((i) => {
+        const cell = getRandomCell();
+        const cellSize = 100 / gridSize;
+        return {
+          size: randomSizes[i],
+          number: randomNumbers[i],
+          isLarger: i === 1,
+          position: {
+            top: cell.row * cellSize + cellSize / 4,
+            left: cell.col * cellSize + cellSize / 4,
+          },
+        };
+      });
     },
     selectCircle(index) {
       const selectedCircle = this.circles[index];
@@ -128,6 +167,7 @@ export default {
   position: relative;
   width: 100%;
   height: 400px;
+  position: relative;
 }
 
 .circle {
