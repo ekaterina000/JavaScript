@@ -49,7 +49,7 @@ export default {
       maxTasks: 10,
       correctAnswers: 0,
       circles: [],
-      gridSize: 5, // Размер сетки
+      gridSize: 5,
     };
   },
   methods: {
@@ -61,8 +61,27 @@ export default {
     generateStimuli() {
       const minSize = 80;
       const maxSize = 160;
+      const gridSize = this.gridSize;
+      const cellSize = 100 / gridSize; 
+      const usedCells = []; 
 
-      // Генерация размеров и чисел
+      const getRandomCell = () => {
+        let cell;
+        do {
+          const row = Math.floor(Math.random() * gridSize);
+          const col = Math.floor(Math.random() * gridSize);
+          cell = { row, col };
+        } while (
+          usedCells.some(
+            (c) =>
+              Math.abs(c.row - cell.row) <= 1 &&
+              Math.abs(c.col - cell.col) <= 1
+          )
+        );
+        usedCells.push(cell);
+        return cell;
+      };
+
       const randomSizes = [
         Math.floor(Math.random() * (maxSize - minSize) + minSize),
         Math.floor(Math.random() * (maxSize - minSize) + minSize),
@@ -74,25 +93,8 @@ export default {
       ];
 
       const shuffledIndices = Math.random() > 0.5 ? [0, 1] : [1, 0];
-
-      // Расчет сетки
-      const usedCells = [];
-      const gridSize = this.gridSize;
-
-      const getRandomCell = () => {
-        let cell;
-        do {
-          const row = Math.floor(Math.random() * gridSize);
-          const col = Math.floor(Math.random() * gridSize);
-          cell = { row, col };
-        } while (usedCells.some((c) => c.row === cell.row && c.col === cell.col));
-        usedCells.push(cell);
-        return cell;
-      };
-
       this.circles = shuffledIndices.map((i) => {
         const cell = getRandomCell();
-        const cellSize = 100 / gridSize;
         return {
           size: randomSizes[i],
           number: randomNumbers[i],
@@ -145,7 +147,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .stroop-test {
   text-align: center;
@@ -167,7 +168,6 @@ export default {
   position: relative;
   width: 100%;
   height: 400px;
-  position: relative;
 }
 
 .circle {
